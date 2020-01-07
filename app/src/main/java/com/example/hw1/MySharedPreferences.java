@@ -1,4 +1,4 @@
-package com.example.hw1.utilities;
+package com.example.hw1;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -27,13 +27,14 @@ public class MySharedPreferences {
     /**
      * Define the max size of the high score table
      */
-    public static final int MAX_HIGH_SCORE_LENGTH = 10;
+    private final int MAX_HIGH_SCORE_LENGTH = 10;
 
     private SharedPreferences shared;
     private ArrayList<GameUser> list;
 
     public MySharedPreferences(Context context) {
         shared = context.getSharedPreferences("App", MODE_PRIVATE);
+        clearSharedPreferences();
     }
 
 

@@ -1,4 +1,4 @@
-package com.example.hw1.view;
+package com.example.hw1;
 
 import android.content.Context;
 import android.graphics.Color;

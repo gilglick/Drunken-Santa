@@ -1,4 +1,4 @@
-package com.example.hw1.utilities;
+package com.example.hw1;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,7 +10,7 @@ import com.example.hw1.GameUser;
 
 public class DataBase extends SQLiteOpenHelper {
 
-    private static final String USER_TABLE = "High_score_table";
+    private static final String USER_TABLE = "Highscore_table";
     private static final String COL0 = "Name";
     private static final String COL1 = "Score";
     private static final String COL2 = "Longitude";

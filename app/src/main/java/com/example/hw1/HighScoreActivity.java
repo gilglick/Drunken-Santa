@@ -5,8 +5,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import com.example.hw1.view.HighScoreFragment;
-import com.example.hw1.view.UserMapFragment;
 
 public class HighScoreActivity extends AppCompatActivity implements HighScoreFragment.FragmentHighScoreListener{
 

@@ -1,25 +1,16 @@
 package com.example.hw1;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.hw1.utilities.DataBase;
-import com.example.hw1.utilities.MySharedPreferences;
-import com.example.hw1.view.EndGameView;
-
-import java.util.Comparator;
 
 public class EndGameActivity extends AppCompatActivity {
 
@@ -29,8 +20,13 @@ public class EndGameActivity extends AppCompatActivity {
     /* Playing the end game song in the game over screen */
     private GameUser gameUser;
 
+    private int gameLevel;
+    private boolean musicIsOn;
+    private boolean accelerometerIsOn;
+
     /* Database holding all data about the User */
     private DataBase gameDataBase;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +36,9 @@ public class EndGameActivity extends AppCompatActivity {
         EndGameView endGameView = new EndGameView(this);
         setContentView(endGameView);
         gameUser = getIntent().getParcelableExtra(getString(R.string.user_object));
+        gameLevel = getIntent().getIntExtra(getString(R.string.game_level),GamePlayFinals.EASY);
+        musicIsOn = getIntent().getBooleanExtra(getString(R.string.music),true);
+        accelerometerIsOn = getIntent().getBooleanExtra(getString(R.string.accelerometer),true);
         gameDataBase = new DataBase(this);
         insertDataToDataBase();
         MySharedPreferences shared = new MySharedPreferences(getApplicationContext());
@@ -52,7 +51,10 @@ public class EndGameActivity extends AppCompatActivity {
         /* On click event, which transfer the client play another game*/
         endGameView.getPlayAgain().setOnClickListener((e) -> {
             Intent intent = new Intent(this, GamePlayActivity.class);
-            intent.putExtra(getString(R.string.user_object),gameUser);
+            intent.putExtra(getString(R.string.user_object),gameUser)
+                    .putExtra(getString(R.string.game_level),gameLevel)
+                    .putExtra(getString(R.string.music),musicIsOn)
+                    .putExtra(getString(R.string.accelerometer),accelerometerIsOn);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             finish();

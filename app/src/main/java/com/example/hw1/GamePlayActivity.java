@@ -14,8 +14,6 @@ import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.hw1.view.GameView;
-
 
 public class GamePlayActivity extends AppCompatActivity implements SensorEventListener2 {
 
@@ -68,8 +66,14 @@ public class GamePlayActivity extends AppCompatActivity implements SensorEventLi
         }
         GameUser gameUser = getIntent().getParcelableExtra(getString(R.string.user_object));
         if (gameUser != null) {
-            gameManager = new GameManager(this, gameView, gameUser,
-                    getIntent().getIntExtra(getString(R.string.game_level), GamePlayFinals.EASY));
+
+            gameManager = new GameManager.Builder()
+                    .gameView(gameView)
+                    .gameUser(gameUser)
+                    .gameLevel(getIntent().getIntExtra(getString(R.string.game_level),GamePlayFinals.EASY))
+                    .music(getIntent().getBooleanExtra(getString(R.string.music),true))
+                    .accelerometer((getIntent().getBooleanExtra(getString(R.string.accelerometer),true)))
+                    .build(this);
             gameManager.generateGame();
         }
 
@@ -117,7 +121,7 @@ public class GamePlayActivity extends AppCompatActivity implements SensorEventLi
     @Override
     protected void onStart() {
         super.onStart();
-        accelerometerOn = getIntent().getBooleanExtra(getString(R.string.accelerometer_service), false);
+        accelerometerOn = getIntent().getBooleanExtra(getString(R.string.accelerometer), false);
         if (accelerometerOn) {
             sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_GAME);
         }
@@ -131,10 +135,12 @@ public class GamePlayActivity extends AppCompatActivity implements SensorEventLi
     @Override
     public void onSensorChanged(SensorEvent event) {
         float accelerationX;
+        float accelerationY;
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             accelerationX = event.values[0];
+            accelerationY = event.values[1];
             if (gameManager != null) {
-                gameManager.playerAccelerometer(accelerationX);
+                gameManager.playerAccelerometer(accelerationX,accelerationY);
             }
         }
     }

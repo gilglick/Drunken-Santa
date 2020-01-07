@@ -1,28 +1,18 @@
-package com.example.hw1.view;
+package com.example.hw1;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.hw1.GameRecyclerAdapter;
-import com.example.hw1.R;
-import com.example.hw1.GameUser;
-import com.example.hw1.utilities.MySharedPreferences;
-import com.google.android.gms.maps.GoogleMap;
 
 import java.util.ArrayList;
 

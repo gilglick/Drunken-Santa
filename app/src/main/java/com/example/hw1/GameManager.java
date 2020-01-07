@@ -3,13 +3,12 @@ package com.example.hw1;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import com.example.hw1.view.GameView;
+
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -92,19 +91,23 @@ public class GameManager {
     /* Variable holding if life exist right now or not */
     private volatile boolean coinExist = false;
 
+
     /* Variable holding the game level */
     private int gameLevel;
 
     /* Variable holding the game speed */
     private int gameSpeed = GAME_STARTING_SPEED;
 
+    private boolean musicIsOn;
+    private boolean accelerometerIsOn;
 
-
-    public GameManager(Context context, GameView gameView, GameUser gameUser, int gameLevel) {
+    public GameManager(Context context, Builder builder) {
         this.context = context;
-        this.gamePlayView = gameView;
-        this.gameUser = gameUser;
-        this.gameLevel = gameLevel;
+        this.gamePlayView = builder.gameView;
+        this.gameUser = builder.gameUser;
+        this.gameLevel = builder.gameLevel;
+        this.musicIsOn = builder.music;
+        this.accelerometerIsOn = builder.accelerometer;
         boomEffect = MediaPlayer.create(context, R.raw.hit);
         addLifeSoundEffect = MediaPlayer.create(context, R.raw.get_life);
     }
@@ -158,7 +161,9 @@ public class GameManager {
                 handler.post(() -> {
                     moveEnemy();
                     if (detectEnemyCollision()) {
+                        if(musicIsOn){
                         boomEffect.start();
+                        }
                         playerGetsHit();
                     }
                     randomizeLife();
@@ -355,9 +360,10 @@ public class GameManager {
     /**
      * Accelerometer working partially
      */
-    public void playerAccelerometer(float x) {
+    public void playerAccelerometer(float x,float y) {
         if (player.getX() <= gamePlayView.getWidth() - player.getWidth() && player.getX() >= 0) {
             player.setX(player.getX() - x);
+           // player.setY(player.getX() - y);
             if (player.getX() >= gamePlayView.getWidth() - player.getWidth()) {
                 player.setX(gamePlayView.getWidth() - player.getWidth());
             } else if (player.getX() < 0) {
@@ -370,16 +376,61 @@ public class GameManager {
         this.playing = playing;
     }
 
+    public Context getContext() {
+        return context;
+    }
+
     /**
      * If game over detected move to game over view
      */
+
     private void gameOver() {
         gameUser.setScore(gameScore);
         playing = false;
         Intent intent = new Intent(context, EndGameActivity.class);
-        intent.putExtra(context.getString(R.string.user_object), gameUser);
+        intent.putExtra(context.getString(R.string.user_object), gameUser)
+                .putExtra(context.getString(R.string.game_level),gameLevel)
+                .putExtra(context.getString(R.string.music),musicIsOn)
+                .putExtra(context.getString(R.string.accelerometer),accelerometerIsOn);
         context.startActivity(intent);
+        ((GamePlayActivity) context).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         ((GamePlayActivity) context).finish();
+    }
 
+    public static class Builder{
+        private GameView gameView;
+        private GameUser gameUser;
+        private int gameLevel;
+        private boolean music;
+        private boolean accelerometer;
+
+        public GameManager build(Context context){
+            return new GameManager(context,this);
+        }
+
+
+        public Builder gameView(GameView gameView){
+            this.gameView = gameView;
+            return this;
+        }
+
+        public Builder gameUser(GameUser gameUser){
+            this.gameUser = gameUser;
+            return this;
+        }
+        public Builder gameLevel(int gameLevel ){
+            this.gameLevel = gameLevel;
+            return this;
+        }
+
+        public Builder music(boolean musicIsOn){
+            this.music = musicIsOn;
+            return this;
+        }
+
+        public Builder accelerometer(boolean accelerometerIsOn) {
+            this.accelerometer = accelerometerIsOn;
+            return this;
+        }
     }
 }
