@@ -1,0 +1,7 @@
+
+]squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8‘Íá–ñ-
+usquid:UselessImportCheck"ERemove this unused import 'com.google.android.gms.maps.model.Marker'.(ƒï¢Áüÿÿÿÿ8¶ÄÎ†ñ-
+fsquid:UselessImportCheck";Remove this unused import 'com.example.hw1.GamePlayFinals'.(á–œ“8éË›ñ-
+psquid:S1450"RRemove the "map" field and declare it as a local variable in the relevant methods.(ùŒ±¢8éÇŞ–ñ-
+€squid:S1450!"]Remove the "cameraPosition" field and declare it as a local variable in the relevant methods.(ìà˜áşÿÿÿÿ8œš„—ñ-
+_squid:UselessImportCheck"4Remove this unused import 'android.content.Context'.(©Ê‰è8¢×©˜ñ-

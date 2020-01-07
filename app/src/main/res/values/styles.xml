@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorRed</item>
+    </style>
+
+    <style name="fontForNotificationLandingPage">
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">#FFFF</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:padding">2dip</item>
+    </style>
+</resources>

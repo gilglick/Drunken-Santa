@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:screenOrientation="reversePortrait"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_background"
+    android:orientation="vertical"
+    tools:context=".GamePlayActivity">
+
+    <FrameLayout
+        android:id="@+id/topFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/backbutton"
+            android:padding="5dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/gameLives"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/gamePlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,46 @@
+<resources>
+    <!-- MAIN ACTIVITY -->
+    <string name="app_name">Drunken Santa</string>
+    <string name="enter_name">Enter Your Name</string>
+    <string name="provider">Provider</string>
+    <string name="yes_option">YES</string>
+    <string name="no_option">NO</string>
+    <string name="name_hint">Enter name</string>
+    <string name="exit_check">Are you sure you want to exit?</string>
+
+    <!-- GAME PLAY ACTIVITY -->
+    <string name="google_maps_api_key">A</string>
+    <string name="lives">LIVES</string>
+    <string name="score">SCORE  </string>
+
+    <!-- HIGH SCORE ACTIVITY -->
+    <string name="show_player_location">DISPLAY LOCATION </string>
+
+    <!-- GAME OVER ACTIVITY -->
+    <string name="gameOver">GAME OVER</string>
+    <string name="play_again">PLAY AGAIN</string>
+    <string name="main_menu">MAIN MENU</string>
+    <string name="high_score">HIGH SCORE</string>
+
+    <!-- SETTINGS -->
+    <string name="how_to_play">HOW TO PLAY</string>
+    <string name="setting_header">GAME SETTING</string>
+    <string name="music">Music</string>
+    <string name="level_easy">GAME LEVEL - EASY </string>
+    <string name="level_medium">GAME LEVEL - MEDIUM </string>
+    <string name="level_hard">GAME LEVEL - HARD </string>
+    <string name="dialog_title">"How to play :"</string>
+    <string name="dialog_msg">"There are two options available: "
+    "\n1. Move the player right or left while you are pressing on him.\n\n"
+    "2. Move the player using your phone, while tilt right will move the player right and "
+    "tile left will move the player to the left"</string>
+    <string name="producer">PRODUCER</string>
+    <string name="accelerometer">Accelerometer</string>
+    <string name="Producers">"Producers : "</string>
+    <string name="string_producer">©Jonathan Karta &amp; Gil Glick.</string>
+    <string name="location_title">Afeka></string>
+    <string name="location_subtitle">I hope you go there></string>
+    <string name="accelerometer_service">accelerometer_service</string>
+    <string name="user_object">user</string>
+    <string name="game_level">gameLevel</string>
+</resources>

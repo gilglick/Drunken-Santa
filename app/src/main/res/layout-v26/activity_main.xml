@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainFrame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_background"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/settingButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="5dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/setting" />
+
+
+        <Button
+            android:id="@+id/highScoreButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:layout_margin="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/winners" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/playerInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/appText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/bangers"
+            android:text="@string/app_name"
+            android:textColor="@color/colorText"
+            android:textSize="60sp" />
+
+        <EditText
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_round"
+            android:hint="@string/name_hint"
+            android:padding="10dp"
+            android:textColor="@color/colorText"
+            android:autofillHints="@string/app_name" />
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_margin="50dp"
+            android:background="@drawable/playbutton" />
+
+        <LinearLayout
+            android:id="@+id/gamePlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
