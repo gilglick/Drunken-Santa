@@ -34,7 +34,6 @@ public class MySharedPreferences {
 
     public MySharedPreferences(Context context) {
         shared = context.getSharedPreferences("App", MODE_PRIVATE);
-        clearSharedPreferences();
     }
 
 
